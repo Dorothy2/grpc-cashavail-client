@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_package = "com.drifai.grpc";
+
+service cashAvail{
+
+	rpc getCashAvail(CashAvailRequest) returns (APIResponse);
+	
+	
+}
+
+message CashAvailRequest {
+	string fundId = 1;
+	string cashAvailType = 2;
+	string cashAvailSubType = 3;
+	string currency = 4;
+}
+
+message APIResponse {
+    string clientId = 1;
+	string fundId = 2;
+	string cashAvailType = 3;
+	string cashAvailSubType = 4;
+	string knowledgeDate = 5;
+	string effectiveDate = 6;
+	string currency = 7;
+	double amount = 8;
+
+}
+
+message Empty {
+
+}
