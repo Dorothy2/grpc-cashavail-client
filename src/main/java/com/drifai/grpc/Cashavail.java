@@ -2856,9 +2856,11 @@ public final class Cashavail {
       "ndId\030\002 \001(\t\022\025\n\rcashAvailType\030\003 \001(\t\022\030\n\020cas" +
       "hAvailSubType\030\004 \001(\t\022\025\n\rknowledgeDate\030\005 \001" +
       "(\t\022\025\n\reffectiveDate\030\006 \001(\t\022\020\n\010currency\030\007 " +
-      "\001(\t\022\016\n\006amount\030\010 \001(\001\"\007\n\005Empty2<\n\tcashAvai" +
+      "\001(\t\022\016\n\006amount\030\010 \001(\001\"\007\n\005Empty2u\n\tcashAvai" +
       "l\022/\n\014getCashAvail\022\021.CashAvailRequest\032\014.A" +
-      "PIResponseB\021\n\017com.drifai.grpcb\006proto3"
+      "PIResponse\0227\n\022getCashAvailStream\022\021.CashA" +
+      "vailRequest\032\014.APIResponse0\001B\021\n\017com.drifa" +
+      "i.grpcb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

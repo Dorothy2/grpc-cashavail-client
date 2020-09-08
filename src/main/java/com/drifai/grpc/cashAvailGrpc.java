@@ -59,6 +59,38 @@ public final class cashAvailGrpc {
      return getGetCashAvailMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.drifai.grpc.Cashavail.CashAvailRequest,
+      com.drifai.grpc.Cashavail.APIResponse> getGetCashAvailStreamMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getCashAvailStream",
+      requestType = com.drifai.grpc.Cashavail.CashAvailRequest.class,
+      responseType = com.drifai.grpc.Cashavail.APIResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.drifai.grpc.Cashavail.CashAvailRequest,
+      com.drifai.grpc.Cashavail.APIResponse> getGetCashAvailStreamMethod() {
+    io.grpc.MethodDescriptor<com.drifai.grpc.Cashavail.CashAvailRequest, com.drifai.grpc.Cashavail.APIResponse> getGetCashAvailStreamMethod;
+    if ((getGetCashAvailStreamMethod = cashAvailGrpc.getGetCashAvailStreamMethod) == null) {
+      synchronized (cashAvailGrpc.class) {
+        if ((getGetCashAvailStreamMethod = cashAvailGrpc.getGetCashAvailStreamMethod) == null) {
+          cashAvailGrpc.getGetCashAvailStreamMethod = getGetCashAvailStreamMethod = 
+              io.grpc.MethodDescriptor.<com.drifai.grpc.Cashavail.CashAvailRequest, com.drifai.grpc.Cashavail.APIResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "cashAvail", "getCashAvailStream"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drifai.grpc.Cashavail.CashAvailRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drifai.grpc.Cashavail.APIResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new cashAvailMethodDescriptorSupplier("getCashAvailStream"))
+                  .build();
+          }
+        }
+     }
+     return getGetCashAvailStreamMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +125,13 @@ public final class cashAvailGrpc {
       asyncUnimplementedUnaryCall(getGetCashAvailMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getCashAvailStream(com.drifai.grpc.Cashavail.CashAvailRequest request,
+        io.grpc.stub.StreamObserver<com.drifai.grpc.Cashavail.APIResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetCashAvailStreamMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +141,13 @@ public final class cashAvailGrpc {
                 com.drifai.grpc.Cashavail.CashAvailRequest,
                 com.drifai.grpc.Cashavail.APIResponse>(
                   this, METHODID_GET_CASH_AVAIL)))
+          .addMethod(
+            getGetCashAvailStreamMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.drifai.grpc.Cashavail.CashAvailRequest,
+                com.drifai.grpc.Cashavail.APIResponse>(
+                  this, METHODID_GET_CASH_AVAIL_STREAM)))
           .build();
     }
   }
@@ -131,6 +177,14 @@ public final class cashAvailGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetCashAvailMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getCashAvailStream(com.drifai.grpc.Cashavail.CashAvailRequest request,
+        io.grpc.stub.StreamObserver<com.drifai.grpc.Cashavail.APIResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetCashAvailStreamMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -156,6 +210,14 @@ public final class cashAvailGrpc {
     public com.drifai.grpc.Cashavail.APIResponse getCashAvail(com.drifai.grpc.Cashavail.CashAvailRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetCashAvailMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.drifai.grpc.Cashavail.APIResponse> getCashAvailStream(
+        com.drifai.grpc.Cashavail.CashAvailRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetCashAvailStreamMethod(), getCallOptions(), request);
     }
   }
 
@@ -187,6 +249,7 @@ public final class cashAvailGrpc {
   }
 
   private static final int METHODID_GET_CASH_AVAIL = 0;
+  private static final int METHODID_GET_CASH_AVAIL_STREAM = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -207,6 +270,10 @@ public final class cashAvailGrpc {
       switch (methodId) {
         case METHODID_GET_CASH_AVAIL:
           serviceImpl.getCashAvail((com.drifai.grpc.Cashavail.CashAvailRequest) request,
+              (io.grpc.stub.StreamObserver<com.drifai.grpc.Cashavail.APIResponse>) responseObserver);
+          break;
+        case METHODID_GET_CASH_AVAIL_STREAM:
+          serviceImpl.getCashAvailStream((com.drifai.grpc.Cashavail.CashAvailRequest) request,
               (io.grpc.stub.StreamObserver<com.drifai.grpc.Cashavail.APIResponse>) responseObserver);
           break;
         default:
@@ -271,6 +338,7 @@ public final class cashAvailGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new cashAvailFileDescriptorSupplier())
               .addMethod(getGetCashAvailMethod())
+              .addMethod(getGetCashAvailStreamMethod())
               .build();
         }
       }

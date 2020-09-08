@@ -5,6 +5,7 @@ option java_package = "com.drifai.grpc";
 service cashAvail{
 
 	rpc getCashAvail(CashAvailRequest) returns (APIResponse);
+	rpc getCashAvailStream(CashAvailRequest) returns (stream APIResponse);
 	
 	
 }
